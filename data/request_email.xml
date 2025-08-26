@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+    <!-- for Manager -->
+    <record id="submit_request_email_template" model="mail.template">
+        <field name="name">Recruitment Create : Manager</field>
+        <field name="email_from">{{object.user_id.email_formatted}}</field>
+        <field name="subject">Recruitment Request :{{(object.name)}} has been created</field>
+        <field name="model_id" ref="recruitment_requests.model_hr_recruitment_request"/>
+        <field name="email_cc"></field>
+        <field name="auto_delete" eval="False"/>
+        <field name="body_html" type="html">
+            <div style="max-width:600px; height:auto; margin-left:30px;">
+                <div style="margin-left:30px;align=center;">
+                    Dear,
+                    <br/>
+                    New recruitment request has been created.
+                    <br/>
+                    <p>Recruitment Ref:<t t-out= "object.rr_name or ''"/></p>
+                </div>
+            </div>
+        </field>
+    </record>
+
+    <!-- for User -->
+    <record id="submit_request_user_email_template" model="mail.template">
+        <field name="name">Recruitment Create : User</field>
+        <field name="email_from">{{object.user_id.email_formatted}}</field>
+        <field name="subject">Recruitment Request :{{(object.name)}} has been submitted</field>
+        <field name="model_id" ref="recruitment_requests.model_hr_recruitment_request"/>
+        <field name="email_cc"></field>
+        <field name="auto_delete" eval="False"/>
+        <field name="body_html" type="html">
+            <div style="max-width:600px; height:auto; margin-left:30px;">
+                <div style="margin-left:30px;align=center;">
+                    Dear <t t-out="object.user_id.name or ''"/>,
+                    <br/>
+                    your recruitment request has been submitted.
+                    <br/>
+                    <p>Recruitment Ref:<t t-out="object.rr_name or ''"/></p>
+                </div>
+            </div>
+        </field>
+    </record>
+
+    <!-- Refused -->
+    <record id="refuse_request_email_template" model="mail.template">
+        <field name="name">Recruitment:Refuse</field>
+        <field name="email_from">{{object.refused_by.email_formatted}}</field>
+        <field name="subject">Recruitment Request :{{(object.name)}} has been refused</field>
+        <field name="model_id" ref="recruitment_requests.model_hr_recruitment_request"/>
+        <field name="email_cc"></field>
+        <field name="auto_delete" eval="False"/>
+        <field name="body_html" type="html">
+            <div style="max-width:600px; height:auto; margin-left:30px;">
+                <div style="margin-left:30px;align=center;">
+                    Dear <t t-out="object.user_id.name or ''"/>,
+                    <br/>
+                    Your recruitment request has been refused.
+                    <br/>
+                    <p>Recruitment Ref. :<t t-out="object.rr_name or ''"/></p>
+                </div>
+            </div>
+        </field>
+    </record>
+
+    <!-- approve user-->
+    <record id="approve_request_email_template" model="mail.template">
+        <field name="name">Recruitment:Approve</field>
+        <field name="email_from">{{object.approver_id.email_formatted}}</field>
+        <field name="subject">Recruitment Request :{{(object.name)}} has been approved</field>
+        <field name="model_id" ref="recruitment_requests.model_hr_recruitment_request"/>
+        <field name="email_cc"></field>
+        <field name="auto_delete" eval="False"/>
+        <field name="body_html" type="html">
+            <div style="max-width:600px; height:auto; margin-left:30px;">
+                <div style="margin-left:30px;align=center;">
+                    Dear <t t-out="object.user_id.name or ''"/>,
+                    <br/>
+                    Your recruitment request has been approved.
+                    <br/>
+                    <p>Recruitment Ref. : <t t-out="object.rr_name or ''"/></p>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>

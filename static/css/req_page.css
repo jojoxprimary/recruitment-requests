@@ -1,0 +1,25 @@
+#Heading {
+	
+}
+#Heading .col-md-3.mb-4.titleline, .col-md-2.mb-4.titleline {
+	border-right: 1px dotted #ccc;
+}
+.title-guide {
+color:#646464;
+font-family:"Open Sans", "Helvetica", Sans;
+}
+.guidetittle {
+		font-family:"Open Sans", "Helvetica", Sans;
+	}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+	.guidetittle {
+		display:block;
+		font-family:"Open Sans", "Helvetica", Sans;
+	}
+	#tabs-tittle li {
+		margin-bottom:0.3em !important;
+		text-align:center;
+		display: block !important;
+		width:100%;
+	}
+}

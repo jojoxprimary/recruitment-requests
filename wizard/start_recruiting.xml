@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="start_recruiting_process_view" model="ir.ui.view">
+        <field name="name">start.recruiting.process form</field>
+        <field name="model">start.recruiting.process</field>
+        <field name="arch" type="xml">
+            <form string="Start Recruitment">
+                <group>
+                    <group>
+                        <field name="recruitment_responsible" domain="[('share', '=', False)]"/>
+                    </group>
+                    <group>
+                                        <field name="interviewer_ids" widget="many2many_tags_avatar" options="{'no_create': True, 'no_create_edit': True}" />
+
+                    </group>
+                </group>
+                <footer>
+                    <button string="Start" name="action_start_recruit" type="object" default_focus="1"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_start_recruiting_process" model="ir.actions.act_window">
+        <field name="name">Start Recruitment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">start.recruiting.process</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="start_recruiting_process_view"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
+
