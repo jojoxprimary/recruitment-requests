@@ -44,12 +44,12 @@ class HrRecruitmentRequest(models.Model):
     #requirements = fields.Text(string="Job Requirement", required=True)
     requirements = fields.Html(string="Job Requirement", required=True)
 
-    department_head_id = fields.Many2one('res.users', string='Department Head', readonly=True)
-    department_approval_date = fields.Datetime(string='Department Approval Date', readonly=True)
+    dpthead_id_approver = fields.Many2one('res.users', string='Department Head Approver', readonly=True)
+    dpthead_approval_date = fields.Datetime(string='Department Head Approval Date', readonly=True)
 
     state = fields.Selection([
         ('draft', 'Draft'), 
-        ('department_approval', 'Department Approval'), 
+        ('dpthead_approval', 'Department Head Approval'), 
         ('refused', 'Refused'), 
         ('confirmed', 'Waiting Approval'), 
         ('accepted', 'Approved'),
@@ -113,7 +113,31 @@ class HrRecruitmentRequest(models.Model):
         else:
             self.description = False
 
-    def action_confirm(self):
+    def action_submit_to_department_head(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'submit.dpthead.process',
+            'target': 'new',
+            'views': [(False, 'form')],
+            'context': {
+                'default_recruitment_id': self.id,
+            }
+        }
+        
+        # recommended
+        #         {
+        #     'type': 'ir.actions.act_window',
+        #     'view_mode': 'form',
+        #     'res_model': 'submit.dpthead.process',
+        #     'target': 'new',
+        #     'views': [(False, 'form')],
+        #     'params': {
+        #         'view_type': 'form'  # ← Moved here
+        #     }
+        # }
+
+    def action_submit_recruiting(self):
         return {
             'type': 'ir.actions.act_window',
             'view_type': 'form',
@@ -121,6 +145,9 @@ class HrRecruitmentRequest(models.Model):
             'res_model': 'submit.recruiting.process',
             'target': 'new',
         }
+
+        
+        
 
     #@api.multi
     def action_accept(self):

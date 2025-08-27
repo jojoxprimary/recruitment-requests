@@ -32,32 +32,40 @@
         <field name="arch" type="xml">
             <form string="Recruitment Request">
                 <header>
-                    <button name="action_confirm" string="Submit to Manager" type="object"
+                    <!-- Button Submit to Department Head -->
+                    <button name="action_submit_to_department_head" string="Submit to Department Head" type="object"
                             class="oe_highlight" invisible = "state != 'draft'"/>
+
+                    <!-- Button Submit to Manager -->
+                    <button name="action_submit_recruiting" string="Submit to Manager" type="object"
+                            class="oe_highlight" invisible = "state != 'dpthead_approval'"/>      <!-- Visisble only if state is not dpthead_approval -->
+
                     <button name="%(recruitment_requests.action_submit_recruiting_process)d"
                             string="Start Recruitment"
                             type="action" invisible = "state != 'draft'"
-                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"
-                    />
+                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/>
+
                     <button name="action_accept"
                             invisible="state != 'confirmed'"
                             string="Approve" type="object" class="oe_highlight"
                             groups="hr_recruitment.group_hr_recruitment_manager"/>
+                            
                     <button name="action_refuse" invisible = "state not in ['confirmed','accepted']"
                             string="Refuse" type="object" groups="hr_recruitment.group_hr_recruitment_manager"/>
                     <button name="action_draft"
-                            invisible = "state not in ['confirmed','refused']"
+                            invisible = "state not in ['dpthead_approval','confirmed','refused']"
                             string="Set to Draft" type="object"/>
                     <button name="%(recruitment_requests.action_start_recruiting_process)d"
                             string="Start Recruitment"
                             type="action" invisible = "state != 'accepted'"
                             class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/>
+
                     <button name="action_done"
                             invisible ="state != 'recruiting'"
                             string="Set to Done" type="object"
                             groups="hr_recruitment.group_hr_recruitment_user,hr_recruitment.group_hr_recruitment_manager"/>
                     <field name="state" widget="statusbar"
-                           statusbar_visible="draft,confirmed,accepted,recruiting,done"
+                           statusbar_visible="draft,dpthead_approval,confirmed,accepted,recruiting,done"
                            statusbar_colors="{&quot;confirm&quot;:&quot;blue&quot;,&quot;refused&quot;:&quot;red&quot;}"/>
                 </header>
                 <sheet>
@@ -99,6 +107,7 @@
                             <field name="expected_employees" readonly="state != 'draft'"/>
                             <field name="date_expected" readonly="state != 'draft'"/>
                             <field name="user_id"/>
+                            <field name="dpthead_id_approver" invisible="state == 'draft'"/>
                             <field name="approver_id" invisible="approver_id == False"/>
                             <field name="refused_by"/>
                         </group>

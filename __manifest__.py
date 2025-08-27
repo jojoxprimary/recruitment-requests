@@ -20,6 +20,7 @@
         'security/security.xml',
         'wizard/start_recruiting.xml',
         'wizard/submit_manager.xml',
+        'wizard/submit_dpthead.xml',
         'views/request.xml',
         'views/employee.xml',
         'views/applicant.xml',
