@@ -55,10 +55,10 @@
                     <button name="action_draft"
                             invisible = "state not in ['dpthead_approval','confirmed','refused']"
                             string="Set to Draft" type="object"/>
-                    <button name="%(recruitment_requests.action_start_recruiting_process)d"
+                    <!-- <button name="%(recruitment_requests.action_start_recruiting_process)d"
                             string="Start Recruitment"
                             type="action" invisible = "state != 'accepted'"
-                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/>
+                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/> -->
 
                     <button name="action_done"
                             invisible ="state != 'recruiting'"
