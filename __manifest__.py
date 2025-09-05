@@ -15,7 +15,6 @@
     'depends': ['base', 'hr_recruitment', 'mail'],
     'images': ['static/description/Banner.png'],
     'data': [
-        'data/request_email.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
         'wizard/start_recruiting.xml',
@@ -24,6 +23,7 @@
         'views/request.xml',
         'views/employee.xml',
         'views/applicant.xml',
+        'data/request_email.xml',
     ],
     'assets':{
     'web.assets_backend': [
