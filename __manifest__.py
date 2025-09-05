@@ -17,13 +17,13 @@
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',
+        'data/request_email.xml',
         'wizard/start_recruiting.xml',
         'wizard/submit_manager.xml',
         'wizard/submit_dpthead.xml',
         'views/request.xml',
         'views/employee.xml',
         'views/applicant.xml',
-        'data/request_email.xml',
     ],
     'assets':{
     'web.assets_backend': [

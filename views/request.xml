@@ -40,10 +40,10 @@
                     <button name="action_submit_recruiting" string="Submit to Manager" type="object"
                             class="oe_highlight" invisible = "state != 'dpthead_approval'"/>      <!-- Visisble only if state is not dpthead_approval -->
 
-                    <!-- <button name="%(recruitment_requests.action_submit_recruiting_process)d"
+                    <button name="%(recruitment_requests.action_submit_recruiting_process)d"
                             string="Start Recruitment"
                             type="action" invisible = "state != 'draft'"
-                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/> -->
+                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/>
 
                     <button name="action_accept"
                             invisible="state != 'confirmed'"
@@ -55,10 +55,10 @@
                     <button name="action_draft"
                             invisible = "state not in ['dpthead_approval','confirmed','refused']"
                             string="Set to Draft" type="object"/>
-                    <!-- <button name="%(recruitment_requests.action_start_recruiting_process)d"
+                    <button name="%(recruitment_requests.action_start_recruiting_process)d"
                             string="Start Recruitment"
                             type="action" invisible = "state != 'accepted'"
-                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/> -->
+                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/>
 
                     <button name="action_done"
                             invisible ="state != 'recruiting'"
@@ -69,7 +69,7 @@
                            statusbar_colors="{&quot;confirm&quot;:&quot;blue&quot;,&quot;refused&quot;:&quot;red&quot;}"/>
                 </header>
                 <sheet>
-                    <!-- <div class="oe_button_box" name="button_box">
+                    <div class="oe_button_box" name="button_box">
                         <button class="oe_stat_button"
                                 icon="fa-file-o"
                                 name="%(action_custom_hr_job_applications)d"
@@ -77,7 +77,7 @@
                                 groups="hr_recruitment.group_hr_recruitment_manager">
                             <field name="applicants_count" widget="statinfo" string="Applications"/>
                         </button>
-                    </div> -->
+                    </div>
                     <div class="oe_title">
                         <h1>
                             <field name="rr_name"/>
@@ -158,15 +158,13 @@
                 <field name="rr_name"/>
                 <field name="name"/>
                 <field name="user_id"/>
-                 <field name="dpthead_id_approver"/>
                 <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
                 <field name="department_id"/>
-               
                 <field name="job_id"/>
                 <field name="date_expected"/>
-                <!-- <field name="expected_employees"/>
+                <field name="expected_employees"/>
                 <field name="applicants_count"/>
-                <field name="employees_count"/> -->
+                <field name="employees_count"/>
                 <field name="recruited_employees" widget="progressbar" string="Recruited Percentage"/>
                 <field name="state"/>
             </list>
@@ -191,7 +189,6 @@
                 <field name="name"/>
                 <field name="job_id"/>
                 <field name="department_id"/>
-                <field name="dpthead_id_approver"/>
                 <field name="user_id"/>
                 <group expand="0" string="Group By">
                     <filter name="group_user_id" string="Requester" icon="terp-accessories-archiver" domain="[]"
