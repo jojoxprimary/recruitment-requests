@@ -158,13 +158,15 @@
                 <field name="rr_name"/>
                 <field name="name"/>
                 <field name="user_id"/>
+                 <field name="dpthead_id_approver"/>
                 <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
                 <field name="department_id"/>
+               
                 <field name="job_id"/>
                 <field name="date_expected"/>
-                <field name="expected_employees"/>
+                <!-- <field name="expected_employees"/>
                 <field name="applicants_count"/>
-                <field name="employees_count"/>
+                <field name="employees_count"/> -->
                 <field name="recruited_employees" widget="progressbar" string="Recruited Percentage"/>
                 <field name="state"/>
             </list>
@@ -189,6 +191,7 @@
                 <field name="name"/>
                 <field name="job_id"/>
                 <field name="department_id"/>
+                <field name="dpthead_id_approver"/>
                 <field name="user_id"/>
                 <group expand="0" string="Group By">
                     <filter name="group_user_id" string="Requester" icon="terp-accessories-archiver" domain="[]"

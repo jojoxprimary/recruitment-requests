@@ -146,6 +146,14 @@ class HrRecruitmentRequest(models.Model):
             'target': 'new',
         }
 
+# state = fields.Selection([
+#         ('draft', 'Draft'), 
+#         ('dpthead_approval', 'Department Head Approval'), 
+#         ('refused', 'Refused'), 
+#         ('confirmed', 'Waiting Approval'), 
+#         ('accepted', 'Approved'),
+#         ('recruiting', 'In recruitment'), 
+#         ('done', 'Done')], string='State', default='draft')
         
         
 
