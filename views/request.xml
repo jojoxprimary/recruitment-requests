@@ -40,10 +40,10 @@
                     <button name="action_submit_recruiting" string="Submit to Manager" type="object"
                             class="oe_highlight" invisible = "state != 'dpthead_approval'"/>      <!-- Visisble only if state is not dpthead_approval -->
 
-                    <button name="%(recruitment_requests.action_submit_recruiting_process)d"
+                    <!-- <button name="%(recruitment_requests.action_submit_recruiting_process)d"
                             string="Start Recruitment"
                             type="action" invisible = "state != 'draft'"
-                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/>
+                            class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"/> -->
 
                     <button name="action_accept"
                             invisible="state != 'confirmed'"
